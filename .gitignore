@@ -218,3 +218,31 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# Revenue Engine additions
+# ---------------------------------------------------------------------------
+
+# Env variants hold secrets (DB, Google OAuth, service-token keys); keep only the template
+.env.*
+!.env.example
+
+# Local data: object-storage fallback and Docker Compose volumes (Postgres, MinIO, Vault, Redis)
+.data/
+pgdata/
+minio-data/
+vault-data/
+redis-data/
+
+# Secrets / key material that must never be committed
+*.pem
+*.key
+secrets/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code per-user local settings
+.claude/settings.local.json

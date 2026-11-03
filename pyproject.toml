@@ -1,0 +1,30 @@
+[project]
+name = "revenue-engine-backend"
+version = "0.1.0"
+description = "Revenue Engine backend — system of record, policy engine and human-in-the-loop approvals. AI lives in the separate AI service repo."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "sqlalchemy[asyncio]>=2.0.32",
+    "asyncpg>=0.29",
+    "alembic>=1.13",
+    "redis>=5.0",
+    "celery>=5.4",
+    "httpx>=0.27",
+    "pyjwt[crypto]>=2.9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.24", "ruff>=0.6", "mypy>=1.11"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src"]
